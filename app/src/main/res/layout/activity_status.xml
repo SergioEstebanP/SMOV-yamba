@@ -33,7 +33,7 @@
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
         android:fontFamily="sans-serif"
-        android:gravity="top|left"
+        android:gravity="top|start"
         android:hint="@string/introduceCaracteres"
         android:inputType="textFilter|text|textMultiLine"
         android:maxLength="140"
@@ -46,7 +46,8 @@
         android:layout_height="wrap_content"
         android:text="@string/enviarTwet"
         android:textSize="20sp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        />
 
 
 
