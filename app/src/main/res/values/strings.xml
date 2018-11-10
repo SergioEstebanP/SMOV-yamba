@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Yamba Alvcaso Sergest</string>
-    <string name="estado">Introduce tu nuevo estado</string>
-    <string name="introduceCaracteres">Introduce entre 1 y 140 caracteres</string>
-    <string name="enviarTwet">Enviar Tweet</string>
-</resources>
