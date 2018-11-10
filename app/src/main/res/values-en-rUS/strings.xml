@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Yamba</string>
+    <string name="lblTitle">Update your status</string>
+    <string name="textTweet">Type the tweet</string>
+    <string name="buttonSend">Send tweet</string>
+    <string name="numeroCaracteres">140</string>
+</resources>
