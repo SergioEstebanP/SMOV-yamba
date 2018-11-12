@@ -1,3 +1,6 @@
+// Sergio Esteban Pellejero
+// Álvaro de Caso Morejón
+
 package com.alvaro.sergio.smov_yamba;
 
 public class SupportServices {
@@ -11,4 +14,8 @@ public class SupportServices {
 
     public static final int MAX_CHARACTERS = 140;
 
+    public static final String MESSAGE_SEND = "Message sent";
+    public static final String MESSAGE_SEND_NOT_SEND = "Message not sent";
+    public static final String INTERNET_FAIL = "Internet Access OFF";
+    public static final String INVALID_CREDENTIALS = "Invalid credentials";
 }

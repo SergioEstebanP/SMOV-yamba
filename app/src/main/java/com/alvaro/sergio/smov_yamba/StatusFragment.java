@@ -1,8 +1,10 @@
+// Sergio Esteban Pellejero
+// Álvaro de Caso Morejón
+
 package com.alvaro.sergio.smov_yamba;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -79,7 +81,7 @@ public class StatusFragment extends Fragment implements View.OnClickListener, Te
     @Override
     public void onClick(View v) {
         String status = editStatus.getText().toString();
-        PostTaskPrueba post = new PostTaskPrueba(twitter, StatusFragment.this, progressBar2);
+        PostTask post = new PostTask(twitter, StatusFragment.this, progressBar2);
         post.execute(status);
     }
 
