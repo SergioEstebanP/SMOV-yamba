@@ -4,4 +4,8 @@
     <string name="textTweet">Type the tweet</string>
     <string name="buttonSend">Send tweet</string>
     <string name="numeroCaracteres">140</string>
+    <string name="titleAccessToken">Access token</string>
+    <string name="resumenAccessToken">Please, introduce your access token</string>
+    <string name="titleAccessTokenSecret">Secret access token</string>
+    <string name="resumenAccessTokenSecret">Pls, introduce your secret access token</string>
 </resources>

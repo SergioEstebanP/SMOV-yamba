@@ -4,4 +4,11 @@
     <string name="textTweet">Introduce el tweet</string>
     <string name="buttonSend">Enviar tweet</string>
     <string name="numeroCaracteres">140</string>
+    <string name="titleAccessToken">Access token</string>
+    <string name="resumenAccessToken">Por favor, introduce tu access token</string>
+    <string name="titleAccessTokenSecret">Access token secret</string>
+    <string name="resumenAccessTokenSecret">Por favor, introduce tu access token secret</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="tweet">Tweet</string>
+    <string name="purge">Purge</string>
 </resources>

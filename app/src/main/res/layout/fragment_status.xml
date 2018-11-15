@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/yamba"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".StatusActivity">
 
     <TextView
         android:id="@+id/textTitle"
