@@ -18,4 +18,5 @@ public class SupportServices {
     public static final String MESSAGE_SEND_NOT_SEND = "Message not sent";
     public static final String INTERNET_FAIL = "Internet Access OFF";
     public static final String INVALID_CREDENTIALS = "Invalid credentials";
+    public static final String TAGService = "RefreshService";
 }

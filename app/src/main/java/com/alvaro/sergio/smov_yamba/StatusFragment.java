@@ -114,8 +114,8 @@ public class StatusFragment extends Fragment implements View.OnClickListener, Te
 
         @Override
         protected String doInBackground(String... strings) {
-            String accesstoken = pref.getString("accesstoken", "");
-            String accesstokensecret = pref.getString("accesstokensecret", "");
+            String accesstoken = pref.getString("accesstoken", "1052940451936907264-5embE34o8XzKyjFmXdKcr4rY0GSqAm");
+            String accesstokensecret = pref.getString("accesstokensecret", "mMYubNM7VnSNBOPxjN0E8MimVafBYhDRYf1Kcbl7Gxt1s");
             if (TextUtils.isEmpty(accesstoken) || TextUtils.isEmpty(accesstokensecret)) {
                 getActivity().startActivity(new Intent(getActivity(), SettingsActivity.class));
                 return "Por favor, actualiza tu nombre de usuario y tu contraseña";
