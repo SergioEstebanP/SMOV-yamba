@@ -3,6 +3,9 @@
 
 package com.alvaro.sergio.smov_yamba;
 
+import android.provider.BaseColumns;
+import android.provider.ContactsContract;
+
 public class SupportServices {
 
     public static final String CONSUMER_KEY="rqFO2Q3L6HLGusJ43kpLSRh51";
@@ -19,4 +22,20 @@ public class SupportServices {
     public static final String INTERNET_FAIL = "Internet Access OFF";
     public static final String INVALID_CREDENTIALS = "Invalid credentials";
     public static final String TAGService = "RefreshService";
+
+    /*--------------- Constantes relacionadas con la bbdd ---------------*/
+
+    public static final String DB_NAME = "timeline.db";
+    public static final int DB_VERSION = 1;
+    public static final String TABLE = "status";
+
+    public static final String ID = BaseColumns._ID;
+    public static final String USER = "user";
+    public static final String MESSAGE = "message";
+    public static final String CREATED_AT = "created_at";
+
+    public static final String sort = CREATED_AT + "DESC";
+
+
 }
+
