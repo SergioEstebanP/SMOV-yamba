@@ -3,6 +3,7 @@
 
 package com.alvaro.sergio.smov_yamba;
 
+import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;
 
@@ -28,6 +29,12 @@ public class SupportServices {
     public static final String DB_NAME = "timeline.db";
     public static final int DB_VERSION = 1;
     public static final String TABLE = "status";
+
+
+    public static final String AUTHORITY = "com.alvaro.sergio.smov_yamba.StatusProvider";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE);
+    public static final int STATUS_ITEM = 1;
+    public static final int STATUS_DIR = 2;
 
     public static final String ID = BaseColumns._ID;
     public static final String USER = "user";

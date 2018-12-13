@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -61,7 +62,7 @@ public class RefreshService extends IntentService {
                 Twitter twitter = factory.getInstance();
                 Log.d(SupportServices.TAGService,"Updater running");
                 try {
-                    db = dbHelper.getWritableDatabase();
+                    //db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
                     List<Status> timeline = twitter.getUserTimeline();
                     Collections.sort(timeline,Collections.<Status>reverseOrder());
@@ -75,10 +76,12 @@ public class RefreshService extends IntentService {
                         values.put(SupportServices.MESSAGE, status.getText());
                         values.put(SupportServices.CREATED_AT,
                                 status.getCreatedAt().getTime());
-                        db.insertWithOnConflict(SupportServices.TABLE, null, values,
-                                SQLiteDatabase.CONFLICT_IGNORE);
+                        /*db.insertWithOnConflict(SupportServices.TABLE, null, values,
+                                SQLiteDatabase.CONFLICT_IGNORE);*/
+                        Uri uri = getContentResolver().insert(SupportServices.CONTENT_URI, values);
+
                     }
-                    db.close();
+                    //db.close();
                 }
                 catch (TwitterException e) {
                     Log.e(SupportServices.TAGService,

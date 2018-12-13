@@ -27,7 +27,13 @@
         <service
             android:name=".RefreshService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true"/>
+        <provider
+            android:name=
+                "com.alvaro.sergio.smov_yamba.StatusProvider"
+            android:authorities=
+                "com.alvaro.sergio.smov_yamba.StatusProvider"
+            android:exported="false" />
     </application>
 
 </manifest>
