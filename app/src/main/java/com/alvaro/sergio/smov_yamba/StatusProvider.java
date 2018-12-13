@@ -34,26 +34,26 @@ public class StatusProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection,
-                        @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s,
+                        @Nullable String[] strings1, @Nullable String s1) {
         String where;
         switch (sURIMatcher.match(uri)) {
             case SupportServices.STATUS_DIR:
-                where = selection;
+                where = s;
                 break;
             case SupportServices.STATUS_ITEM:
                 long id = ContentUris.parseId(uri);
                 where = SupportServices.ID
                         + "="
                         + id
-                        + (TextUtils.isEmpty(selection) ? "" : " and ( " + selection + " )");
+                        + (TextUtils.isEmpty(s) ? "" : " and ( " + s + " )");
                 break;
             default:
                 throw new IllegalArgumentException("uri incorrecta: " + uri);
         }
-        String orderBy = (TextUtils.isEmpty(sortOrder)) ? SupportServices.sort : sortOrder;
+        String orderBy = (TextUtils.isEmpty(s1)) ? SupportServices.DEFAULT_SORT : s1;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query(SupportServices.TABLE, projection, where, selectionArgs, null, null,
+        Cursor cursor = db.query(SupportServices.TABLE, strings, where, strings1, null, null,
                 orderBy);
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
         Log.d(TAG, "registros recuperados: " + cursor.getCount());

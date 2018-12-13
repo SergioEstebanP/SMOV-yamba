@@ -41,7 +41,7 @@ public class SupportServices {
     public static final String MESSAGE = "message";
     public static final String CREATED_AT = "created_at";
 
-    public static final String sort = CREATED_AT + "DESC";
+    public static final String DEFAULT_SORT = CREATED_AT +" DESC";
 
 
 }
