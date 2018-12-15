@@ -1,6 +1,9 @@
-// Sergio Esteban Pellejero
-// Álvaro de Caso Morejón
-
+/*
+ *
+ * Álvaro de Caso Morejón
+ * Sergio Esteban Pellejero
+ *
+ */
 package com.alvaro.sergio.smov_yamba;
 
 import android.support.v7.app.AppCompatActivity;

@@ -1,17 +1,18 @@
+/*
+ *
+ * Álvaro de Caso Morejón
+ * Sergio Esteban Pellejero
+ *
+ */
 package com.alvaro.sergio.smov_yamba;
 
 import android.app.IntentService;
-import android.app.Service;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,7 +33,6 @@ public class RefreshService extends IntentService {
     }
 
     DbHelper dbHelper;
-    SQLiteDatabase db;
 
     @Override
     public void onCreate() {
@@ -44,8 +44,6 @@ public class RefreshService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-
-
 
         Log.d(SupportServices.TAGService,"onStarted");
 
@@ -66,11 +64,10 @@ public class RefreshService extends IntentService {
                 Twitter twitter = factory.getInstance();
                 Log.d(SupportServices.TAGService,"Updater running");
                 try {
-                    //db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
                     List<Status> timeline;
 
-                    if(!userTimeline){ //Modificación para poder escoger el timeline, por defecto user.
+                    if(!userTimeline){
                         Log.d(SupportServices.TAGService,"user");
                        timeline = twitter.getUserTimeline();
                     }else {
@@ -79,21 +76,14 @@ public class RefreshService extends IntentService {
                     }
                                          Collections.sort(timeline,Collections.<Status>reverseOrder());
                     for (Status status : timeline) {
-                        Log.d(SupportServices.TAGService, String.format("%s: %s", status.getUser().getName(),
-                                status.getText()));
+                        Log.d(SupportServices.TAGService, String.format("%s: %s", status.getUser().getName(), status.getText()));
                         // Insertar en la base de datos
                         values.clear();
                         values.put(SupportServices.ID, status.getId());
                         values.put(SupportServices.USER, status.getUser().getName());
                         values.put(SupportServices.MESSAGE, status.getText());
-                        values.put(SupportServices.CREATED_AT,
-                                status.getCreatedAt().getTime());
-                        /*db.insertWithOnConflict(SupportServices.TABLE, null, values,
-                                SQLiteDatabase.CONFLICT_IGNORE);*/
-                        Uri uri = getContentResolver().insert(SupportServices.CONTENT_URI, values);
-
+                        values.put(SupportServices.CREATED_AT, status.getCreatedAt().getTime());
                     }
-                    //db.close();
                 }
                 catch (TwitterException e) {
                     Log.e(SupportServices.TAGService,
@@ -106,9 +96,6 @@ public class RefreshService extends IntentService {
             }
         }
     }
-
-
-
 
     @Override
     public void onDestroy(){

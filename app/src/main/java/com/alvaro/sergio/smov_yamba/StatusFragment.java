@@ -1,6 +1,9 @@
-// Sergio Esteban Pellejero
-// Álvaro de Caso Morejón
-
+/*
+ *
+ * Álvaro de Caso Morejón
+ * Sergio Esteban Pellejero
+ *
+ */
 package com.alvaro.sergio.smov_yamba;
 
 import android.annotation.SuppressLint;
@@ -95,10 +98,6 @@ public class StatusFragment extends Fragment implements View.OnClickListener, Te
         PostTask post = new PostTask(twitter, StatusFragment.this, progressBar2);
         post.execute(status);
     }
-
-    // Sergio Esteban Pellejero
-// Álvaro de Caso Morejón
-
 
     public class PostTask extends AsyncTask<String,Void,String> {
 

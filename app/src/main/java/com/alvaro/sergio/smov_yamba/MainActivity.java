@@ -1,12 +1,17 @@
+/*
+*
+* Álvaro de Caso Morejón
+* Sergio Esteban Pellejero
+*
+*/
 package com.alvaro.sergio.smov_yamba;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import com.alvaro.sergio.smov_yamba.RefreshService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.itemServiceStop:
                 stopService(new Intent(this, RefreshService.class));
                 return true;
-            case R.id.itemServiceHomeTimeline:  /*Modificacion */
+            case R.id.itemServiceHomeTimeline:
                 rows = getContentResolver().delete(SupportServices.CONTENT_URI,
                         null, null);
                 RefreshService.userTimeline = false;
@@ -54,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                         null, null);
                 RefreshService.userTimeline = true;
                 return true;
-//            --------------------------------------------------------
             default:
                 return false;
         }

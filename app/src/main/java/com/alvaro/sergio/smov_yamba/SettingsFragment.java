@@ -1,3 +1,9 @@
+/*
+ *
+ * Álvaro de Caso Morejón
+ * Sergio Esteban Pellejero
+ *
+ */
 package com.alvaro.sergio.smov_yamba;
 
 import android.preference.PreferenceFragment;
