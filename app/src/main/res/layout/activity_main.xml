@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.alvaro.sergio.smov_yamba.MainActivity">
+
     <fragment
+        android:id="@+id/fragment_timeline"
+        android:name="com.alvaro.sergio.smov_yamba.TimelineFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_timeline"
-        android:name = "com.alvaro.sergio.smov_yamba.TimelineFragment"
-        android:layout_centerHorizontal = "true"/>
+        android:layout_centerHorizontal="true" />
 
 </android.support.constraint.ConstraintLayout>
