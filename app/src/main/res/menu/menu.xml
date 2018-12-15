@@ -25,4 +25,15 @@
         android:title="@string/titleServiceStop"
         android:icon="@android:drawable/ic_media_pause" />
 
+    <item
+        android:id="@+id/itemServiceHomeTimeline"
+        android:title="@string/historial_home"
+        />
+
+    <item
+        android:id="@+id/itemServiceTwetsTimeline"
+        android:title="@string/historial_de_twets"
+        />
+
+
 </menu>

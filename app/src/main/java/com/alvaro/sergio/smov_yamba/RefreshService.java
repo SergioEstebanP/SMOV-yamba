@@ -23,6 +23,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class RefreshService extends IntentService {
 
+    public static boolean userTimeline = true;
     private static final int retardo = 30000;
     private boolean runFlag  = false;
 
@@ -43,6 +44,9 @@ public class RefreshService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+
+
+
         Log.d(SupportServices.TAGService,"onStarted");
 
         runFlag = true;
@@ -64,8 +68,16 @@ public class RefreshService extends IntentService {
                 try {
                     //db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
-                    List<Status> timeline = twitter.getUserTimeline();
-                    Collections.sort(timeline,Collections.<Status>reverseOrder());
+                    List<Status> timeline;
+
+                    if(!userTimeline){ //Modificación para poder escoger el timeline, por defecto user.
+                        Log.d(SupportServices.TAGService,"user");
+                       timeline = twitter.getUserTimeline();
+                    }else {
+                        timeline = twitter.getHomeTimeline();
+                        Log.d(SupportServices.TAGService,"home");
+                    }
+                                         Collections.sort(timeline,Collections.<Status>reverseOrder());
                     for (Status status : timeline) {
                         Log.d(SupportServices.TAGService, String.format("%s: %s", status.getUser().getName(),
                                 status.getText()));

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import com.alvaro.sergio.smov_yamba.RefreshService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int rows;
         switch (item.getItemId()) {
             case R.id.action_purge:
-                int rows = getContentResolver().delete(SupportServices.CONTENT_URI,
+                rows = getContentResolver().delete(SupportServices.CONTENT_URI,
                         null, null);
                 Toast.makeText(this, rows + " filas de la base de datos borradas",
                         Toast.LENGTH_LONG).show();
@@ -42,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.itemServiceStop:
                 stopService(new Intent(this, RefreshService.class));
                 return true;
+            case R.id.itemServiceHomeTimeline:  /*Modificacion */
+                rows = getContentResolver().delete(SupportServices.CONTENT_URI,
+                        null, null);
+                RefreshService.userTimeline = false;
+                return true;
+            case R.id.itemServiceTwetsTimeline:
+                rows = getContentResolver().delete(SupportServices.CONTENT_URI,
+                        null, null);
+                RefreshService.userTimeline = true;
+                return true;
+//            --------------------------------------------------------
             default:
                 return false;
         }
